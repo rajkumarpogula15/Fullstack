@@ -1,0 +1,29 @@
+
+/* element  */
+
+{ color: yellow;}
+
+table{background-color: aqua;
+color: rgb(76, 14, 221);}
+
+/* universal */
+
+*{background-color: rgb(221, 9, 9);}
+
+/* class */
+
+.myclass{
+    background-color: green;
+}
+
+/* id selector */
+
+#myclass{
+    background-color: blueviolet;
+}
+
+body{
+    color: #020202;
+    margin: 0%;
+    
+}
