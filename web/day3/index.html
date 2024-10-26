@@ -60,16 +60,16 @@
         event.preventDefault()
         let email=document.getElementById('email').value;
         let password=document.getElementById('password').value;
-        // if (password.length <=0){
-            // alert("password shoud contain more than 5 letters")
-        // }
-        // else if (email==="admin@gmail.com"&& password==="1"){
-            // alert("loginsucess")
+        if (password.length <=0){
+            alert("password shoud contain more than 5 letters")
+        }
+        else if (email==="admin@gmail.com"&& password==="1"){
+            alert("loginsucess")
             API();
-        // }
-        // else {
-        //     alert("invalid credentials!")
-        // }
+        }
+        else {
+            alert("invalid credentials!")
+        }
     async function API(){
         console.log('called API')
         try{
