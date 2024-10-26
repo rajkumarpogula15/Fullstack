@@ -7,17 +7,17 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <form action="" class="login-form">
-        <input type="text" class="login-text" placeholder="Name"><br>
-        <input type="email" class="login-text" id="" placeholder="email" required><br>
-        <input type="password" name="" class="login-text" placeholder="password" required ><br>
+    <form action="" class="login-form" onsubmit="login(event)">
+        <!-- <input type="text" class="login-text" placeholder="Name" required><br> -->
+        <input type="email" class="login-text" id="email" placeholder="email" required><br>
+        <input type="password" name="" class="login-text" id="password" placeholder="password" required ><br>
         <button class="login-btn" title="Click me">submit</button>
     </form>
 </body>
 
 <script>
     console.log("Hello world");
-    alert("hello");
+    // alert("hello");
     let x=10
     console.log(x);
     x="hi"
@@ -43,7 +43,46 @@
     console.log(obj1,obj2);
     let arr=[ "a",obj1,x,obj2]
     console.log(arr);
+    let arr2=[1,2,3,4,5,6,7]
+    console.log(arr2)
+    let arr3=[arr,arr2]
+    let arr4=[...arr,...arr2]
+    console.log(arr3) 
+    console.log(arr4)
 
+    function myfuncion(){
+        console.error("hello man")
+        console.warn("hello man")
+    }
+    myfuncion()
+
+    function login(event){
+        event.preventDefault()
+        let email=document.getElementById('email').value;
+        let password=document.getElementById('password').value;
+        // if (password.length <=0){
+            // alert("password shoud contain more than 5 letters")
+        // }
+        // else if (email==="admin@gmail.com"&& password==="1"){
+            // alert("loginsucess")
+            API();
+        // }
+        // else {
+        //     alert("invalid credentials!")
+        // }
+    async function API(){
+        console.log('called API')
+        try{
+            const responce= await fetch('https://671b72ad2c842d92c37fff7c.mockapi.io/rajkumar/rk');
+            console.log(await responce.json());
+        }catch(error){
+            console.error();
+        }
+    }
+        
+        console.log("login:"+email+" "+password);
+    }
+    
 </script>
 
 
