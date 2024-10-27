@@ -1,20 +1,18 @@
-// import React from 'react'
-import Navbar from './components/Navbar.jsx' 
-// <!--  -->
+import Navbar from "./components/Navbar"
+
 const App = () => {
   const data ={
-    appname: "hello"
-  }
-  
-  const logodata="mylogo"
+        appname: "Rk",
+        age:21
+    };
   const test="hello world"
+  return (
+      <>
 
-
-return (
-    <>
-    <p className="text-yellow-500">{text}</p>
-    < Navbar appdata={data} logo={logodata} />
-    </>
-)
+        <p className="text-green-500">{test}</p>
+        <Navbar param1={data}/>
+      </>
+  )
 }
+
 export default App
