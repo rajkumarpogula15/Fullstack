@@ -14,3 +14,8 @@ const ProductsSchema =new mongoose.Schema({
         required: true
     }
 })
+
+const Products =mongoose.model("Products",ProductsSchema)
+
+module.exports= mongoose
+
