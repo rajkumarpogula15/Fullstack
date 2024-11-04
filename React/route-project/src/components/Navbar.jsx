@@ -13,6 +13,10 @@ const Navbar = () => {
         {
             title: 'Contact',
             path: '/contact'
+        },
+        {
+            title: 'Login',
+            path: '/login'
         }
     ]
     return (

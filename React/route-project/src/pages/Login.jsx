@@ -7,15 +7,7 @@ const Login = () => {
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>Login Page</title>
       <style dangerouslySetInnerHTML={{__html: `
-        body {
-          font-family: Arial, sans-serif;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 100vh;
-          margin: 0;
-          background-color: #f0f2f5;
-        }
+        
         .login-container {
           width: 300px;
           padding: 20px;
@@ -23,6 +15,8 @@ const Login = () => {
           border-radius: 8px;
           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
           text-align: center;
+          margin-left: 550px;
+          margin-top: 100px;
         }
         .login-container h2 {
           margin-bottom: 20px;
@@ -38,7 +32,7 @@ const Login = () => {
         .login-container button {
           width: 100%;
           padding: 10px;
-          background-color: #4CAF50;
+          
           color: white;
           border: none;
           border-radius: 4px;
@@ -47,7 +41,7 @@ const Login = () => {
           margin-top: 10px;
         }
         .login-container button:hover {
-          background-color: #45a049;
+          background-color: green;
         }
         .social-login {
           margin-top: 20px;
@@ -60,13 +54,13 @@ const Login = () => {
           border: none;
           border-radius: 4px;
           cursor: pointer;
-          color: white;
+          color: green;
         }
         .google-btn {
-          background-color: #db4437;
+          background-color: orange;
         }
         .facebook-btn {
-          background-color: #3b5998;
+          background-color: blue;
         }
       `}} />
 
@@ -87,3 +81,4 @@ const Login = () => {
 };
 
 export default Login;
+

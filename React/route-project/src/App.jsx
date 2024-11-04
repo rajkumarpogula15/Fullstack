@@ -3,8 +3,9 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Contact from './pages/Contact'
 import Products from './pages/Products'
-import Login from './pages/Login'
+import Logins from './pages/login'
 import WebLayout from './layouts/Weblayout'
+import Login from './pages/login'
 
 // import {} from 'react'
 const App = () => {
