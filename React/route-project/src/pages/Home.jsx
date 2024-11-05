@@ -1,6 +1,6 @@
-// import HomeCards from "../components/HomeCards"
+import HomeCards from "../components/Homecards"
 import HomeCarousel from "../components/HomeCarousel"
-// import SocialCard from "../components/SocialCard"
+import SocialCard from "../components/SocialCard"
 
 const Home = () => {
     return (
