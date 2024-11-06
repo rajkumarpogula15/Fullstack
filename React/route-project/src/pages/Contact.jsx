@@ -1,44 +1,45 @@
-import React from 'react'
-import { Mail, Phone, Pin } from 'lucide-react'
+import React from 'react';
+import { Mail, Phone, Pin } from 'lucide-react';
+
 const Contact = () => {
   return (
     <>
-      <div className='w-screen h-full flex flex-col justify-center items-center'>
-
-        <div className='w-full h-40 flex justify-center items-center text-3xl text-purple-500 font-semibold'>
+      <div className='w-screen h-full flex flex-col justify-center items-center bg-gray-50'>
+        <div className='w-full h-32 flex justify-center items-center text-5xl text-blue-600 font-bold shadow-md'>
           Contact Us
         </div>
-        <div className='w-[75%] h-[45rem] shadow-lg flex flex-row justify-center items-center'>
-          <div className='h-[90%] w-1/2 flex flex-col justify-center items-center gap-4'>
-            <div className='h-[31%] w-[70%] border rounded-md flex flex-col justify-center items-center text-lg font-semibold gap-4 shadow-md'>
-              <Mail className='h-8 w-8 text-purple-600' />
-              <h1>abc@gamil.com</h1>
+        <div className='w-[90%] md:w-[80%] h-[40rem] bg-white shadow-lg rounded-md flex flex-col md:flex-row justify-center items-start p-8 mt-6'>
+          <div className='h-full w-full md:w-1/3 flex flex-col justify-start items-center gap-6'>
+            <div className='h-[25%] w-full border rounded-md flex flex-col justify-center items-center text-lg font-semibold gap-2 shadow-md p-6 bg-blue-100 transition-transform transform hover:scale-105'>
+              <Mail className='h-8 w-8 text-blue-600' />
+              <h1 className='text-blue-800 text-lg'>abc@gmail.com</h1>
             </div>
-            <div className='h-[31%] w-[70%] border rounded-md flex flex-col justify-center items-center text-lg font-semibold gap-4 shadow-md'>
-              <Phone className='h-8 w-8 text-purple-600' />
-              <h1>9876543210</h1>
+            <div className='h-[25%] w-full border rounded-md flex flex-col justify-center items-center text-lg font-semibold gap-2 shadow-md p-6 bg-blue-100 transition-transform transform hover:scale-105'>
+              <Phone className='h-8 w-8 text-blue-600' />
+              <h1 className='text-blue-800 text-lg'>9876543210</h1>
             </div>
-            <div className='h-[31%] w-[70%] border rounded-md flex flex-col justify-center items-center text-lg font-semibold gap-4 shadow-md'>
-              <Pin className='h-8 w-8 text-purple-600' />
-              <h1 className='text-center'>1/11 ,asd,dfg <br /> wert</h1>
+            <div className='h-[25%] w-full border rounded-md flex flex-col justify-center items-center text-lg font-semibold gap-2 shadow-md p-6 bg-blue-100 transition-transform transform hover:scale-105'>
+              <Pin className='h-8 w-8 text-blue-600' />
+              <h1 className='text-blue-800 text-center text-lg'>1/11, asd, dfg <br /> wert</h1>
             </div>
           </div>
-          <div className='h-[95%] w-1/2 flex flex-col justify-center items-center'>
+          <div className='h-full w-full md:w-2/3 flex flex-col justify-center items-center'>
             <div className='h-full w-full flex flex-col justify-center items-center text-lg font-semibold'>
-              <h1 className='w-[80%] text-left my-6 font-bold text-purple-500'>Get in touch</h1>
-              <form className='h-[80%] w-[80%] flex flex-col justify-center items-center gap-8'>
-                <input type="text" name="" id="" placeholder='Name' className='w-full shadow-sm outline-none bg-[#f5f5f7] border-b-2 border-transparent p-4 focus:shadow-lg focus:border-b-2 focus:border-purple-400 rounded-sm' />
-                <input type="email" name="" id="" placeholder='Email' className='w-full shadow-sm outline-none bg-[#f5f5f7] border-b-2 border-transparent p-4 focus:shadow-lg focus:border-b-2 focus:border-purple-400 rounded-sm' />
-                <input type="tel" name="" id="" placeholder='Phone' className='w-full shadow-sm outline-none bg-[#f5f5f7] border-b-2 border-transparent p-4 focus:shadow-lg focus:border-b-2 focus:border-purple-400 rounded-sm' />
-                <textarea name="" id="" className='w-full shadow-sm outline-none bg-[#f5f5f7] border-b-2 border-transparent p-4 focus:shadow-lg focus:border-b-2 focus:border-purple-400 rounded-sm ' cols='8' rows='10' placeholder='Message'/>
+              <h1 className='w-[90%] text-left my-4 font-bold text-blue-600 text-2xl'>Get in Touch</h1>
+              <form className='h-[80%] w-[90%] flex flex-col justify-center items-center gap-6'>
+                <input type="text" placeholder='Name' className='w-full shadow-sm outline-none bg-gray-200 border-b-2 border-transparent p-3 focus:shadow-md focus:border-b-2 focus:border-blue-500 rounded-md' />
+                <input type="email" placeholder='Email' className='w-full shadow-sm outline-none bg-gray-200 border-b-2 border-transparent p-3 focus:shadow-md focus:border-b-2 focus:border-blue-500 rounded-md' />
+                <input type="tel" placeholder='Phone' className='w-full shadow-sm outline-none bg-gray-200 border-b-2 border-transparent p-3 focus:shadow-md focus:border-b-2 focus:border-blue-500 rounded-md' />
+                <textarea className='w-full shadow-sm outline-none bg-gray-200 border-b-2 border-transparent p-3 focus:shadow-md focus:border-b-2 focus:border-blue-500 rounded-md' cols='8' rows='5' placeholder='Message'/>
+                <button type='submit' className='mt-4 w-1/2 bg-blue-600 text-white py-2 rounded-md hover:bg-blue-500 transition-all shadow-md hover:shadow-lg'>Send Message</button>
               </form>
             </div>
           </div>
         </div>
-
       </div>
     </>
-  )
+  );
 }
 
-export default Contact
+export default Contact;
+

@@ -1,15 +1,9 @@
-const mongoose=require('mongoose')
+const mongoose = require('mongoose'); // Correctly require mongoose
 
-mongoose=mongoose.connect("mongodb+srv://rajkumarpogula22:Raju@1454@in-aws.59ion.mongodb.net/")
-
-const connection=mongoose.connection;
-
-connection.on('connected',()=>{
-    console.log("DB Connected ")
+// Establish a connection to MongoDB
+mongoose.connect("mongodb+srv://rajkumarpogula22:Raju12345@in-aws.59ion.mongodb.net/max-store?retryWrites=true&w=majority&appName=in-AWS", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 })
-
-connection.on('error',()=>{
-    console.log("DB  Error")
-})
-
-module.exports =mongoose
+    .then(() => console.log('MongoDB connected successfully'))
+    .catch(err => console.error('MongoDB connection error:', err));
