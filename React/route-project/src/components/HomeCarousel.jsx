@@ -5,7 +5,7 @@ const HomeCarousel = () => {
   return (
     <Carousel autoPlay infiniteLoop showThumbs={false} showStatus={false}>
       <div className="relative">
-        <img className="h-[50vh] object-cover" src="https://contentstatic.techgig.com/thumb/msid-111431449,width-800,resizemode-4/Which-smartphones-will-dominate-the-market-in-July-2024.jpg?44244" alt="Mobiles" />
+        <img className="h-[50vh] object-cover" src="https://files.oaiusercontent.com/file-lW8gn5gJH7CDAKhjIDXMIP6d?se=2024-11-06T03%3A43%3A08Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D96c9f82d-1217-4ef1-ae53-1e6f86ca999b.webp&sig=/4jXWcFdgCCdOp9hxREJpKprgyaF7If7qDHaYbSEzZE%3D" alt="Mobiles" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
 
         <div className="absolute left-4 bottom-4 flex flex-col bg-white/80 rounded-lg p-4 shadow-lg">
@@ -18,7 +18,7 @@ const HomeCarousel = () => {
       </div>
 
       <div className="relative">
-        <img className="h-[50vh] object-cover" src="https://cdn.thewirecutter.com/wp-content/media/2024/07/laptopstopicpage-2048px-3685-2x1-1.jpg?width=2048&quality=75&crop=2:1&auto=webp" alt="Laptops" />
+        <img className="h-[50vh] object-cover" src="https://files.oaiusercontent.com/file-jqWsOmaElCUWmuuSYGVsyJpc?se=2024-11-06T03%3A46%3A06Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D579a66ce-bda3-4f8e-97c9-baad78b2a250.webp&sig=9rBRPrF8v%2BKwh47RBeqT8qaSX01L7LaK2hHrLGL099Q%3D" alt="Laptops" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
 
         <div className="absolute left-4 bottom-4 flex flex-col bg-white/80 rounded-lg p-4 shadow-lg">
