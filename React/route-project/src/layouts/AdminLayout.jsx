@@ -6,12 +6,12 @@ const AdminLayout = () => {
     return (
         <div className="w-screen min-h-screen flex flex-row">
             {/* Left Sidebar */}
-            <div className="w-[22vw] min-h-screen bg-gray-100">
+            <div className="w-[18vw] min-h-screen bg-gray-100">
                 <AdminLeftBar />
             </div>
             
             {/* Main Content Area */}
-            <div className="w-[78vw] flex flex-col">
+            <div className="w-[82vw] flex flex-col">
                 {/* Top Bar */}
                 <div className="h-[3rem] bg-white shadow-md flex items-center">
                     <AdminTopBar />

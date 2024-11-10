@@ -8,6 +8,7 @@ import AdminDashboard from './pages/Admin/AdminDashboard';
 import Orders from './pages/Admin/Orders';
 import Customers from './pages/Admin/AdminCustomers';
 import Settings from './pages/Admin/AdminSettings';
+import AdminProducts from './pages/Admin/AdminProducts';
 
 const App = () => {
     return (
@@ -24,7 +25,7 @@ const App = () => {
                     {/* Admin Routes */}
                     <Route element={<AdminLayout />}>
                         <Route path='/admin/dashboard' element={<AdminDashboard />} />
-                        <Route path='/admin/products' element={<Products />} />
+                        <Route path='/admin/products' element={<AdminProducts />} />
                         <Route path='/admin/orders' element={<Orders />} />
                         <Route path='/admin/customers' element={<Customers />} />
                         <Route path='/admin/settings' element={<Settings />} />

@@ -27,7 +27,7 @@ const AdminLeftBar = () => {
              style={{ fontFamily: "'Playfair Display', serif" }}>
           ShopEase 
         </div>
-
+        <div className='font-bold'>
         {/* Links Section */}
         <div className="h-[80%] w-full flex flex-col items-center gap-4 mt-4">
           {Linksdata.map((link, index) => (
@@ -46,7 +46,7 @@ const AdminLeftBar = () => {
             </NavLink>
           ))}
         </div>
-
+          </div>
         {/* Logout Section */}
         <div className="h-[10%] w-full flex items-center justify-center">
           <button 

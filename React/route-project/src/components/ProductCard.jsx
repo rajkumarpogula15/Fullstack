@@ -3,13 +3,13 @@ import React from 'react';
 
 const ProductCard = ({ img, price, name }) => {
     return (
-        <div className="relative flex flex-col w-full sm:w-[47%] md:w-[30%] lg:w-[19%] xl:w-[18%] rounded-xl bg-white text-gray-700 shadow-md transition-transform transform hover:scale-105 m-4">
+        <div className="relative flex flex-col w-full sm:w-[47%] md:w-[30%] lg:w-[19%] xl:w-[15%] rounded-xl bg-white text-gray-700 shadow-md transition-transform transform hover:scale-105 m-4">
             {/* Product Image Section */}
-            <div className="relative mx-4 -mt-6 h-40 overflow-hidden rounded-xl bg-blue-gray-500 text-white shadow-lg bg-gradient-to-r from-purple-300 to-purple-600">
+            <div className="flex justify-center items-center mx-4 -mt-6 h-40 overflow-hidden rounded-xl bg-blue-gray-500 text-white shadow-lg bg-gradient-to-r from-purple-300 to-purple-600">
                 <img
                     src={img}
                     alt={name}
-                    className="h-full w-full object-cover transition-transform duration-300 hover:scale-110"
+                    className="h-full w-auto max-w-full object-cover transition-transform duration-300 hover:scale-110"
                 />
             </div>
 
@@ -35,4 +35,3 @@ const ProductCard = ({ img, price, name }) => {
 };
 
 export default ProductCard;
-

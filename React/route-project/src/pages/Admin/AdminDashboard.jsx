@@ -1,8 +1,9 @@
 import React from 'react'
+import AdminDashboardcards from '../../components/Admin/AdminDashboardcards'
 
 const AdminDashboard = () => {
   return (
-    <div>AdminDashboard</div>
+    <AdminDashboardcards />
   )
 }
 
