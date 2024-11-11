@@ -4,22 +4,23 @@ import { getProducts } from '../api/api';
 import { Loader2, TriangleAlert } from 'lucide-react';
 
 const Products = () => {
-    const [products, setProducts] = useState(null);
-    const [filteredProducts, setFilteredProducts] = useState([]);
+    const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [searchQuery, setSearchQuery] = useState('');
-    const [priceFilter, setPriceFilter] = useState('');
+    const [error, setError] = useState(null);
 
-    // Fetching data from the API
     async function fetchData() {
         try {
             const res = await getProducts();
+            console.log("API Response:", res); // Debugging line
             if (res.status === 200) {
-                setProducts(res.data);
-                setFilteredProducts(res.data);
+                // Check if res.data is an array and set products accordingly
+                setProducts(Array.isArray(res.data) ? res.data : []);
+            } else {
+                setError("Failed to load products. Please check the API response structure.");
             }
         } catch (error) {
-            console.log(error);
+            console.error("Fetch error:", error); // Log the error for further inspection
+            setError("An error occurred. Please try again later.");
         } finally {
             setLoading(false);
         }
@@ -29,84 +30,45 @@ const Products = () => {
         fetchData();
     }, []);
 
-    // Filter products based on search query and price range
-    useEffect(() => {
-        let filtered = products;
-
-        if (searchQuery) {
-            filtered = filtered.filter(product =>
-                product.name.toLowerCase().includes(searchQuery.toLowerCase())
-            );
-        }
-
-        if (priceFilter) {
-            if (priceFilter === 'low') {
-                filtered = filtered.filter(product => product.price < 500);
-            } else if (priceFilter === 'high') {
-                filtered = filtered.filter(product => product.price >= 500);
-            }
-        }
-
-        setFilteredProducts(filtered);
-    }, [searchQuery, priceFilter, products]);
-
-    // Loading State
     if (loading) {
         return (
-            <div className="w-screen h-[90vh] flex flex-col justify-center items-center">
-                <Loader2 className="text-purple-500 h-14 w-14 animate-spin" />
+            <div className="w-screen h-[90vh] flex flex-col justify-center items-center" role="status">
+                <Loader2 className="text-purple-500 h-14 w-14 animate-spin" aria-label="Loading products" />
             </div>
         );
     }
 
-    // No Products Available State
-    if (!filteredProducts || filteredProducts.length === 0) {
+    if (error) {
         return (
             <div className="w-screen h-[90vh] flex flex-col justify-center items-center">
-                <TriangleAlert className="text-orange-400 h-12 w-12" />
+                <TriangleAlert className="text-red-500 h-12 w-12" aria-hidden="true" />
+                <p className="text-red-500">{error}</p>
+            </div>
+        );
+    }
+
+    // Log products to ensure it is an array before .map()
+    console.log("Products state before mapping:", products);
+
+    if (!Array.isArray(products) || !products.length) {
+        return (
+            <div className="w-screen h-[90vh] flex flex-col justify-center items-center">
+                <TriangleAlert className="text-orange-400 h-12 w-12" aria-hidden="true" />
                 <p>No Products Available!</p>
             </div>
         );
     }
 
     return (
-        <div className="w-screen h-full px-6 mt-14 mb-12">
-            {/* Search Bar and Filters Section */}
-            <div className="flex flex-col sm:flex-row justify-center items-center mb-8 gap-6 w-full">
-                {/* Search Bar */}
-                <input
-                    type="text"
-                    placeholder="Search Products"
-                    className="w-full sm:w-[40%] md:w-[30%] lg:w-[20%] p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-purple-600 transition-all"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
+        <div className="w-screen h-full flex justify-start items-start flex-row flex-wrap mt-14 mb-12 gap-y-20 gap-x-2">
+            {products.map((product) => (
+                <ProductCard 
+                    img={product.img || "https://via.placeholder.com/150"} 
+                    name={product.name} 
+                    price={product.price} 
+                    key={product._id} 
                 />
-
-                {/* Filters Section */}
-                <div className="flex gap-4 items-center">
-                    <select
-                        className="p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-purple-600"
-                        value={priceFilter}
-                        onChange={(e) => setPriceFilter(e.target.value)}
-                    >
-                        <option value="">Filter by Price</option>
-                        <option value="low">Below ₹500</option>
-                        <option value="high">Above ₹500</option>
-                    </select>
-                </div>
-            </div>
-
-            {/* Product Cards Display */}
-            <div className="w-screen h-full flex justify-start items-start flex-row flex-wrap gap-y-20 gap-x-2">
-                {filteredProducts.map((product, index) => (
-                    <ProductCard
-                        key={product.id}
-                        img={product.img}
-                        name={product.name}
-                        price={product.price}
-                    />
-                ))}
-            </div>
+            ))}
         </div>
     );
 };

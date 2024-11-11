@@ -1,61 +1,57 @@
-const express = require('express')
+const express = require('express');
 const router = express.Router();
-const Products = require('../models/ProductsModel')
+const Products = require('../models/ProductsModel');
+const validate = require('../config/auth');
 
-// Method : GET  || API : localhost:3000/products/all
+// Method : GET || API : /products/all
 router.get('/all', async (req, res) => {
     try {
-        const products = await Products.find()
-        res.status(200).json(products)
+        const products = await Products.find();
+        res.status(200).json(products);
     } catch (error) {
-        res.status(500).json({ message: error.message })
+        res.status(500).json({ message: error.message });
     }
-})
+});
 
-// Method : POST  || API : localhost:3000/products/add
-router.post('/add', async (req, res) => {
+// Method : POST || API : /products/add
+router.post('/add', validate, async (req, res) => {
+    const { title, img, price } = req.body;
+    if (!title || !img || !price) {
+        return res.status(400).json({ message: "All fields are required" });
+    }
     try {
-        const newproduct = new Products(req.body)
-        const { title, img, price } = newproduct
-        if (!title || !img || !price) {
-            res.status(400).json({ message: "All fields required" })
-        }
-        await newproduct.save()
-        res.status(200).json(newproduct)
+        const newProduct = new Products({ title, img, price });
+        await newProduct.save();
+        res.status(201).json(newProduct);
     } catch (error) {
-        res.status(500).json({ message: error.message })
+        res.status(500).json({ message: error.message });
     }
-})
+});
 
-// Method : PUT  || API : localhost:3000/products/edit/_id
-router.put('/edit/:id', async (req, res) => {
+// Method : PUT || API : /products/edit/:id
+router.put('/edit/:id', validate, async (req, res) => {
     try {
-        const id = req.params.id
-        const existingproduct = await Products.findOne({ _id: id })
-        if (!existingproduct) {
-            res.status(404).json({ message: "Product not found" })
+        const updatedProduct = await Products.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        if (!updatedProduct) {
+            return res.status(404).json({ message: "Product not found" });
         }
-        const updatedproduct = await Products.findByIdAndUpdate(id, req.body, { new: true })
-        res.status(200).json(updatedproduct)
+        res.status(200).json(updatedProduct);
     } catch (error) {
-        res.status(500).json({ message: error.message })
+        res.status(500).json({ message: error.message });
     }
-})
+});
 
-// Method : DELETE  || API : localhost:3000/products/delete/_id
-router.delete('/delete/:id', async (req, res) => {
+// Method : DELETE || API : /products/delete/:id
+router.delete('/delete/:id', validate, async (req, res) => {
     try {
-        const id = req.params.id
-        const existingproduct = await Products.findOne({ _id: id })
-        if (!existingproduct) {
-            res.status(404).json({ message: "Product not found" })
+        const deletedProduct = await Products.findByIdAndDelete(req.params.id);
+        if (!deletedProduct) {
+            return res.status(404).json({ message: "Product not found" });
         }
-        await Products.findByIdAndDelete(id)
-        res.status(200).json({ message: "Product Deleted" })
+        res.status(200).json({ message: "Product Deleted" });
     } catch (error) {
-        res.status(500).json({ message: error.message })
+        res.status(500).json({ message: error.message });
     }
-})
+});
 
-
-module.exports = router
+module.exports = router;
