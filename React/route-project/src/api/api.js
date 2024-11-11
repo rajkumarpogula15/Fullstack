@@ -1,11 +1,9 @@
+import axios from 'axios';
 
-import axios from 'axios'
+const API = 'http://localhost:3000';
 
+const getProducts = () => axios.get(`${API}/products/all`);
+const getOrders = () => axios.get(`${API}/orders/all`); 
+const getUsers = () => axios.get(`${API}/users/all`);
 
-const API = 'http://localhost:3000/products/all'
-
-
-const getProducts = () => axios.get(API)
-
-
-export { getProducts }
+export { getProducts, getOrders, getUsers };
