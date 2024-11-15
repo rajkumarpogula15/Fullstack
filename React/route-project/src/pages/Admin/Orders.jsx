@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Pencil, Trash } from 'lucide-react';
+import {Ban} from 'lucide-react';
 import { getOrders } from '../../api/api';
 
 const Orders = () => {
@@ -52,11 +52,8 @@ const Orders = () => {
                 <td className="p-4 border-t border-gray-200">{order.uid}</td>
                 <td className="p-4 border-t border-gray-200">${order.total}</td>
                 <td className="p-4 border-t border-gray-200 flex justify-center gap-4">
-                  <button className="flex items-center justify-center w-10 h-10 rounded-full border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white transition-all duration-200">
-                    <Pencil />
-                  </button>
                   <button className="flex items-center justify-center w-10 h-10 rounded-full border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white transition-all duration-200">
-                    <Trash />
+                  <Ban />
                   </button>
                 </td>
               </tr>

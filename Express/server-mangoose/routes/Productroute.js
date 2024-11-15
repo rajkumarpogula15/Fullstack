@@ -14,7 +14,7 @@ router.get('/all', async (req, res) => {
 });
 
 // Method : POST || API : /products/add
-router.post('/add', validate, async (req, res) => {
+router.post('/add', async (req, res) => {
     const { title, img, price } = req.body;
     if (!title || !img || !price) {
         return res.status(400).json({ message: "All fields are required" });
@@ -29,7 +29,7 @@ router.post('/add', validate, async (req, res) => {
 });
 
 // Method : PUT || API : /products/edit/:id
-router.put('/edit/:id', validate, async (req, res) => {
+router.put('/edit/:id', async (req, res) => {
     try {
         const updatedProduct = await Products.findByIdAndUpdate(req.params.id, req.body, { new: true });
         if (!updatedProduct) {
@@ -42,7 +42,7 @@ router.put('/edit/:id', validate, async (req, res) => {
 });
 
 // Method : DELETE || API : /products/delete/:id
-router.delete('/delete/:id', validate, async (req, res) => {
+router.delete('/delete/:id', async (req, res) => {
     try {
         const deletedProduct = await Products.findByIdAndDelete(req.params.id);
         if (!deletedProduct) {

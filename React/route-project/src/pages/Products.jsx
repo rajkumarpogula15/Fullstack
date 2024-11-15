@@ -61,14 +61,18 @@ const Products = () => {
 
     return (
         <div className="w-screen h-full flex justify-start items-start flex-row flex-wrap mt-14 mb-12 gap-y-20 gap-x-2">
-            {products.map((product) => (
-                <ProductCard 
-                    img={product.img || "https://via.placeholder.com/150"} 
-                    name={product.title} 
-                    price={product.price} 
-                    key={product._id} 
-                />
-            ))}
+            {products.map((product) => {
+                console.log(product.title,"Image URL:", product.img); // Debugging line
+                return (
+                    <ProductCard 
+                        img={product.img || "https://via.placeholder.com/150"} 
+                        name={product.title} 
+                        price={product.price} 
+                        key={product._id} 
+                    />
+                );
+            })}
+
         </div>
     );
 };
